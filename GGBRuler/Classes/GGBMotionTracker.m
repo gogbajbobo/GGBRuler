@@ -324,25 +324,26 @@
                 //                                          motion, @"motion",
                 //                                          nil];
                 
-                GGB3DVelocity velocity = self.deviceVelocity;
-                GGB3DPoint devicePoint = self.devicePoint;
-                CMAcceleration acceleration = self.deviceAcceleration;
+//                GGB3DVelocity velocity = self.deviceVelocity;
+//                GGB3DPoint devicePoint = self.devicePoint;
+//                CMAcceleration acceleration = self.deviceAcceleration;
                 
-                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [NSData dataWithBytes:&acceleration length:sizeof(acceleration)], @"acceleration",
-                                          [NSData dataWithBytes:&velocity length:sizeof(velocity)], @"velocity",
-                                          [NSData dataWithBytes:&devicePoint length:sizeof(devicePoint)], @"devicePoint",
-                                          motion, @"motion",
-                                          nil];
+//                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                          [NSData dataWithBytes:&acceleration length:sizeof(acceleration)], @"acceleration",
+//                                          [NSData dataWithBytes:&velocity length:sizeof(velocity)], @"velocity",
+//                                          [NSData dataWithBytes:&devicePoint length:sizeof(devicePoint)], @"devicePoint",
+//                                          motion, @"motion",
+//                                          nil];
+//                
+//                [[NSNotificationCenter defaultCenter] postNotificationName:@"motionTrackerNewValues"
+//                                                                    object:self
+//                                                                  userInfo:userInfo];
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"motionTrackerNewValues"
-                                                                    object:self
-                                                                  userInfo:userInfo];
+//                self.caller.xLabel.text = [NSString stringWithFormat:@"%.2f", motion.userAcceleration.x];
+//                self.caller.yLabel.text = [NSString stringWithFormat:@"%.2f", motion.userAcceleration.y];
+//                self.caller.zLabel.text = [NSString stringWithFormat:@"%.2f", motion.userAcceleration.z];
+//                NSLog(@"x %.2f, y %.2f, z %.2f", motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z);
                 
-                //                self.caller.xLabel.text = [NSString stringWithFormat:@"%.2f", motion.userAcceleration.x];
-                //                self.caller.yLabel.text = [NSString stringWithFormat:@"%.2f", motion.userAcceleration.y];
-                //                self.caller.zLabel.text = [NSString stringWithFormat:@"%.2f", motion.userAcceleration.z];
-                //                NSLog(@"x %.2f, y %.2f, z %.2f", motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z);
             });
             
         }
@@ -367,11 +368,11 @@
     
     self.deviceAcceleration = accRef;
     
-    //    NSLog(@"accel x %.3f, y %.3f, z %.3f", motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z);
-    //    NSLog(@"gravity x %.3f, y %.3f, z %.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z);
-    //    NSLog(@"motion.attitude %@", motion.attitude);
-    
-    //            NSLog(@"accel z %.3f", motion.userAcceleration.z);
+    NSLog(@"accel x %.3f, y %.3f, z %.3f", motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z);
+    NSLog(@"gravity x %.3f, y %.3f, z %.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z);
+    NSLog(@"motion.attitude %@", motion.attitude);
+
+    NSLog(@"accel z %.3f", motion.userAcceleration.z);
     
     NSTimeInterval interval = self.motionManager.deviceMotionUpdateInterval;
     CGFloat gForce = 9.81;
@@ -384,8 +385,8 @@
     
     self.deviceVelocity = currentVelocity;
     
-    //            NSLog(@"veloc x %.3f, y %.3f, z %.3f", self.deviceVelocity.x, self.deviceVelocity.y, self.deviceVelocity.z);
-    //    NSLog(@"veloc z %.3f", self.deviceVelocity.z);
+    NSLog(@"veloc x %.3f, y %.3f, z %.3f", self.deviceVelocity.x, self.deviceVelocity.y, self.deviceVelocity.z);
+    NSLog(@"veloc z %.3f", self.deviceVelocity.z);
     
     GGB3DPoint currentPoint = self.devicePoint;
     currentPoint.x += self.deviceVelocity.x * interval;
@@ -403,8 +404,8 @@
     //                                                        object:self
     //                                                      userInfo:userInfo];
     
-    //            NSLog(@"point x %.3f, y %.3f, z %.3f", self.devicePoint.x, self.devicePoint.y, self.devicePoint.z);
-    //    NSLog(@"point z %.3f", self.devicePoint.z);
+    NSLog(@"point x %.3f, y %.3f, z %.3f", self.devicePoint.x, self.devicePoint.y, self.devicePoint.z);
+    NSLog(@"point z %.3f", self.devicePoint.z);
     
 }
 
