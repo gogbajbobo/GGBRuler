@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GGBAppDelegate.h
 //  GGBRuler
 //
 //  Created by Maxim Grigoriev on 12/06/2017.
@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface GGBAppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
 
 
 @end

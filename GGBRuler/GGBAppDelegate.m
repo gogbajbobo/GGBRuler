@@ -1,18 +1,18 @@
 //
-//  AppDelegate.m
+//  GGBAppDelegate.m
 //  GGBRuler
 //
 //  Created by Maxim Grigoriev on 12/06/2017.
 //  Copyright © 2017 Maxim Grigoriev. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "GGBAppDelegate.h"
 
-@interface AppDelegate ()
+@interface GGBAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation GGBAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

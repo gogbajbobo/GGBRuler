@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2CD801041EEED3B30056CCA8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801031EEED3B30056CCA8 /* main.m */; };
-		2CD801071EEED3B30056CCA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801061EEED3B30056CCA8 /* AppDelegate.m */; };
-		2CD8010A1EEED3B30056CCA8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801091EEED3B30056CCA8 /* ViewController.m */; };
-		2CD8010D1EEED3B30056CCA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8010B1EEED3B30056CCA8 /* Main.storyboard */; };
 		2CD8010F1EEED3B30056CCA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CD8010E1EEED3B30056CCA8 /* Assets.xcassets */; };
 		2CD801121EEED3B30056CCA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD801101EEED3B30056CCA8 /* LaunchScreen.storyboard */; };
 		2CD8011D1EEED3B30056CCA8 /* GGBRulerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD8011C1EEED3B30056CCA8 /* GGBRulerTests.m */; };
 		2CD801281EEED3B30056CCA8 /* GGBRulerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801271EEED3B30056CCA8 /* GGBRulerUITests.m */; };
+		2CD801371EEED4290056CCA8 /* GGBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801361EEED4290056CCA8 /* GGBAppDelegate.m */; };
+		2CD8013A1EEED4D80056CCA8 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD801391EEED4D80056CCA8 /* Debug.storyboard */; };
+		2CD8013E1EEED58B0056CCA8 /* GGBRulerCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD8013D1EEED58B0056CCA8 /* GGBRulerCore.m */; };
+		2CD801431EEED6110056CCA8 /* GGBRulerMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801421EEED6110056CCA8 /* GGBRulerMainVC.m */; };
+		2CD801461EEED6650056CCA8 /* GGBMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801451EEED6650056CCA8 /* GGBMotionTracker.m */; };
+		2CD801491EEED6F90056CCA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD801481EEED6F90056CCA8 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +40,6 @@
 /* Begin PBXFileReference section */
 		2CD800FF1EEED3B30056CCA8 /* GGBRuler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGBRuler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD801031EEED3B30056CCA8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2CD801051EEED3B30056CCA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2CD801061EEED3B30056CCA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2CD801081EEED3B30056CCA8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2CD801091EEED3B30056CCA8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2CD8010C1EEED3B30056CCA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2CD8010E1EEED3B30056CCA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CD801111EEED3B30056CCA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CD801131EEED3B30056CCA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +49,16 @@
 		2CD801231EEED3B30056CCA8 /* GGBRulerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GGBRulerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD801271EEED3B30056CCA8 /* GGBRulerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGBRulerUITests.m; sourceTree = "<group>"; };
 		2CD801291EEED3B30056CCA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CD801351EEED4290056CCA8 /* GGBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBAppDelegate.h; sourceTree = "<group>"; };
+		2CD801361EEED4290056CCA8 /* GGBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBAppDelegate.m; sourceTree = "<group>"; };
+		2CD801391EEED4D80056CCA8 /* Debug.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Debug.storyboard; sourceTree = "<group>"; };
+		2CD8013C1EEED58B0056CCA8 /* GGBRulerCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBRulerCore.h; sourceTree = "<group>"; };
+		2CD8013D1EEED58B0056CCA8 /* GGBRulerCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBRulerCore.m; sourceTree = "<group>"; };
+		2CD801411EEED6110056CCA8 /* GGBRulerMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBRulerMainVC.h; sourceTree = "<group>"; };
+		2CD801421EEED6110056CCA8 /* GGBRulerMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBRulerMainVC.m; sourceTree = "<group>"; };
+		2CD801441EEED6650056CCA8 /* GGBMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBMotionTracker.h; sourceTree = "<group>"; };
+		2CD801451EEED6650056CCA8 /* GGBMotionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBMotionTracker.m; sourceTree = "<group>"; };
+		2CD801481EEED6F90056CCA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD801491EEED6F90056CCA8 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +94,7 @@
 				2CD8011B1EEED3B30056CCA8 /* GGBRulerTests */,
 				2CD801261EEED3B30056CCA8 /* GGBRulerUITests */,
 				2CD801001EEED3B30056CCA8 /* Products */,
+				2CD801471EEED6F90056CCA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,13 +111,11 @@
 		2CD801011EEED3B30056CCA8 /* GGBRuler */ = {
 			isa = PBXGroup;
 			children = (
-				2CD801051EEED3B30056CCA8 /* AppDelegate.h */,
-				2CD801061EEED3B30056CCA8 /* AppDelegate.m */,
-				2CD801081EEED3B30056CCA8 /* ViewController.h */,
-				2CD801091EEED3B30056CCA8 /* ViewController.m */,
-				2CD8010B1EEED3B30056CCA8 /* Main.storyboard */,
+				2CD8013B1EEED5650056CCA8 /* Classes */,
+				2CD801381EEED4740056CCA8 /* Storyboards */,
+				2CD801351EEED4290056CCA8 /* GGBAppDelegate.h */,
+				2CD801361EEED4290056CCA8 /* GGBAppDelegate.m */,
 				2CD8010E1EEED3B30056CCA8 /* Assets.xcassets */,
-				2CD801101EEED3B30056CCA8 /* LaunchScreen.storyboard */,
 				2CD801131EEED3B30056CCA8 /* Info.plist */,
 				2CD801021EEED3B30056CCA8 /* Supporting Files */,
 			);
@@ -138,6 +146,44 @@
 				2CD801291EEED3B30056CCA8 /* Info.plist */,
 			);
 			path = GGBRulerUITests;
+			sourceTree = "<group>";
+		};
+		2CD801381EEED4740056CCA8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2CD801101EEED3B30056CCA8 /* LaunchScreen.storyboard */,
+				2CD801391EEED4D80056CCA8 /* Debug.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		2CD8013B1EEED5650056CCA8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2CD8013F1EEED5D10056CCA8 /* Views */,
+				2CD8013C1EEED58B0056CCA8 /* GGBRulerCore.h */,
+				2CD8013D1EEED58B0056CCA8 /* GGBRulerCore.m */,
+				2CD801441EEED6650056CCA8 /* GGBMotionTracker.h */,
+				2CD801451EEED6650056CCA8 /* GGBMotionTracker.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2CD8013F1EEED5D10056CCA8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2CD801411EEED6110056CCA8 /* GGBRulerMainVC.h */,
+				2CD801421EEED6110056CCA8 /* GGBRulerMainVC.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2CD801471EEED6F90056CCA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CD801481EEED6F90056CCA8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +248,7 @@
 		2CD800F71EEED3B30056CCA8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GGB;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Maxim Grigoriev";
 				TargetAttributes = {
@@ -209,6 +256,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = HXTB3SFBU4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 					2CD801171EEED3B30056CCA8 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -249,9 +301,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD8013A1EEED4D80056CCA8 /* Debug.storyboard in Resources */,
 				2CD801121EEED3B30056CCA8 /* LaunchScreen.storyboard in Resources */,
 				2CD8010F1EEED3B30056CCA8 /* Assets.xcassets in Resources */,
-				2CD8010D1EEED3B30056CCA8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CD8010A1EEED3B30056CCA8 /* ViewController.m in Sources */,
-				2CD801071EEED3B30056CCA8 /* AppDelegate.m in Sources */,
+				2CD801461EEED6650056CCA8 /* GGBMotionTracker.m in Sources */,
+				2CD8013E1EEED58B0056CCA8 /* GGBRulerCore.m in Sources */,
+				2CD801371EEED4290056CCA8 /* GGBAppDelegate.m in Sources */,
 				2CD801041EEED3B30056CCA8 /* main.m in Sources */,
+				2CD801431EEED6110056CCA8 /* GGBRulerMainVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,20 +368,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2CD8010B1EEED3B30056CCA8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2CD8010C1EEED3B30056CCA8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2CD801101EEED3B30056CCA8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2CD801111EEED3B30056CCA8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -374,7 +421,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -417,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -431,6 +478,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HXTB3SFBU4;
 				INFOPLIST_FILE = GGBRuler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximgrigoriev.GGBRuler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,6 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = HXTB3SFBU4;
 				INFOPLIST_FILE = GGBRuler/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.maximgrigoriev.GGBRuler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
