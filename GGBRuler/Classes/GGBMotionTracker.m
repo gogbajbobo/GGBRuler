@@ -47,36 +47,40 @@
 }
 
 - (CMMotionManager *)motionManager {
+    
     if (!_motionManager) {
         _motionManager = [[CMMotionManager alloc] init];
     }
     return _motionManager;
+    
 }
 
 - (void)trigger {
-    
-    if (self.measuring) {
-        [self stopMeasure];
-    } else {
-        [self startMeasure];
-    }
-    
+    (self.measuring) ? [self stopMeasure] : [self startMeasure];
 }
 
 - (void)setMeasuring:(BOOL)measuring {
     
     if (_measuring != measuring) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"motionTrackerStateChanged"
+                                                            object:self];
         _measuring = measuring;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"motionTrackerStateChanged" object:self];
+        
     }
     
 }
 
 - (void)setCalibrating:(BOOL)calibrating {
+
     if (_calibrating != calibrating) {
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"motionTrackerCalibrating"
+                                                            object:self];
         _calibrating = calibrating;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"motionTrackerCalibrating" object:self];
+
     }
+    
 }
 
 
@@ -293,12 +297,15 @@
     self.measuring = YES;
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
     [self.motionManager startDeviceMotionUpdatesToQueue:queue withHandler:^(CMDeviceMotion *motion, NSError *error) {
         
         if (error) {
             
             NSLog(@"Start motion update error %@", error);
+            
             [self.motionManager stopDeviceMotionUpdates];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.measuring = NO;
             });
@@ -345,7 +352,6 @@
 }
 
 - (void)calculateMotion:(CMDeviceMotion *)motion {
-    
     
     CMAcceleration acc;
     acc.x = motion.userAcceleration.x - self.calError.x;
