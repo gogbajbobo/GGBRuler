@@ -15,7 +15,7 @@
 		2CD801371EEED4290056CCA8 /* GGBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801361EEED4290056CCA8 /* GGBAppDelegate.m */; };
 		2CD8013A1EEED4D80056CCA8 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CD801391EEED4D80056CCA8 /* Debug.storyboard */; };
 		2CD8013E1EEED58B0056CCA8 /* GGBRulerCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD8013D1EEED58B0056CCA8 /* GGBRulerCore.m */; };
-		2CD801431EEED6110056CCA8 /* GGBRulerMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801421EEED6110056CCA8 /* GGBRulerMainVC.m */; };
+		2CD801431EEED6110056CCA8 /* GGBRulerDebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801421EEED6110056CCA8 /* GGBRulerDebugVC.m */; };
 		2CD801461EEED6650056CCA8 /* GGBMotionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD801451EEED6650056CCA8 /* GGBMotionTracker.m */; };
 		2CD801491EEED6F90056CCA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD801481EEED6F90056CCA8 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
@@ -54,8 +54,8 @@
 		2CD801391EEED4D80056CCA8 /* Debug.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Debug.storyboard; sourceTree = "<group>"; };
 		2CD8013C1EEED58B0056CCA8 /* GGBRulerCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBRulerCore.h; sourceTree = "<group>"; };
 		2CD8013D1EEED58B0056CCA8 /* GGBRulerCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBRulerCore.m; sourceTree = "<group>"; };
-		2CD801411EEED6110056CCA8 /* GGBRulerMainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBRulerMainVC.h; sourceTree = "<group>"; };
-		2CD801421EEED6110056CCA8 /* GGBRulerMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBRulerMainVC.m; sourceTree = "<group>"; };
+		2CD801411EEED6110056CCA8 /* GGBRulerDebugVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBRulerDebugVC.h; sourceTree = "<group>"; };
+		2CD801421EEED6110056CCA8 /* GGBRulerDebugVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBRulerDebugVC.m; sourceTree = "<group>"; };
 		2CD801441EEED6650056CCA8 /* GGBMotionTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBMotionTracker.h; sourceTree = "<group>"; };
 		2CD801451EEED6650056CCA8 /* GGBMotionTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBMotionTracker.m; sourceTree = "<group>"; };
 		2CD801481EEED6F90056CCA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -151,8 +151,8 @@
 		2CD801381EEED4740056CCA8 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				2CD801101EEED3B30056CCA8 /* LaunchScreen.storyboard */,
 				2CD801391EEED4D80056CCA8 /* Debug.storyboard */,
+				2CD801101EEED3B30056CCA8 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -172,8 +172,8 @@
 		2CD8013F1EEED5D10056CCA8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2CD801411EEED6110056CCA8 /* GGBRulerMainVC.h */,
-				2CD801421EEED6110056CCA8 /* GGBRulerMainVC.m */,
+				2CD801411EEED6110056CCA8 /* GGBRulerDebugVC.h */,
+				2CD801421EEED6110056CCA8 /* GGBRulerDebugVC.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,7 +332,7 @@
 				2CD8013E1EEED58B0056CCA8 /* GGBRulerCore.m in Sources */,
 				2CD801371EEED4290056CCA8 /* GGBAppDelegate.m in Sources */,
 				2CD801041EEED3B30056CCA8 /* main.m in Sources */,
-				2CD801431EEED6110056CCA8 /* GGBRulerMainVC.m in Sources */,
+				2CD801431EEED6110056CCA8 /* GGBRulerDebugVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

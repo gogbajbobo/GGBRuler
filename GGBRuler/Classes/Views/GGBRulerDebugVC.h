@@ -1,5 +1,5 @@
 //
-//  GGBRulerMainVC.h
+//  GGBRulerDebugVC.h
 //  GGBRuler
 //
 //  Created by Maxim Grigoriev on 12/06/2017.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GGBRulerMainVC : UIViewController
+@interface GGBRulerDebugVC : UIViewController
 
 @end

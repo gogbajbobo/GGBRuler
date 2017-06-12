@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ruler MainVC-->
+        <!--Ruler DebugVC-->
         <scene sceneID="AxR-uW-zJY">
             <objects>
-                <viewController id="2Ob-a7-2RS" customClass="GGBRulerMainVC" sceneMemberID="viewController">
+                <viewController id="2Ob-a7-2RS" customClass="GGBRulerDebugVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dD9-l4-K8D"/>
                         <viewControllerLayoutGuide type="bottom" id="pxR-GA-qpc"/>
@@ -21,12 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-b7-NI3">
-                                <rect key="frame" x="108" y="469" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-b7-NI3">
+                                <rect key="frame" x="111.5" y="469" width="97" height="30"/>
                                 <state key="normal" title="Start Measure">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startMeasureButtonPressed:" destination="2Ob-a7-2RS" eventType="touchUpInside" id="k5n-Yu-P08"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8TO-Ai-v21">
                                 <rect key="frame" x="125" y="59" width="62" height="30"/>
@@ -130,7 +132,14 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MWq-b7-NI3" firstAttribute="centerX" secondItem="gga-uF-GdS" secondAttribute="centerX" id="8Bw-hx-fPG"/>
+                            <constraint firstItem="pxR-GA-qpc" firstAttribute="top" secondItem="MWq-b7-NI3" secondAttribute="bottom" constant="69" id="pWE-p1-2x1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startMeasureButton" destination="MWq-b7-NI3" id="0qf-ti-m0X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LV7-J1-cfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

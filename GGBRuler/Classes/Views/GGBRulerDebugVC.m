@@ -1,20 +1,21 @@
 //
-//  GGBRulerMainVC.m
+//  GGBRulerDebugVC.m
 //  GGBRuler
 //
 //  Created by Maxim Grigoriev on 12/06/2017.
 //  Copyright © 2017 Maxim Grigoriev. All rights reserved.
 //
 
-#import "GGBRulerMainVC.h"
+#import "GGBRulerDebugVC.h"
 
 #import "GGBMotionTracker.h"
 
 
-@interface GGBRulerMainVC() <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
+@interface GGBRulerDebugVC() // <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) GGBMotionTracker *motionTracker;
-@property (weak, nonatomic) IBOutlet UIButton *measureButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *startMeasureButton;
 @property (weak, nonatomic) IBOutlet UIButton *calibrateButton;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
 
@@ -38,27 +39,28 @@
 @end
 
 
-@implementation GGBRulerMainVC
+@implementation GGBRulerDebugVC
 
 - (GGBMotionTracker *)motionTracker {
     
     if (!_motionTracker) {
         _motionTracker = [GGBMotionTracker sharedTracker];
     }
-    
     return _motionTracker;
     
 }
 
+
+#pragma mark - button actions
+
+- (IBAction)startMeasureButtonPressed:(id)sender {
+    [self.motionTracker trigger];
+}
+
+
 - (IBAction)calibrateButtonPressed:(id)sender {
     
     [self.motionTracker calibrate];
-    
-}
-
-- (IBAction)measureButtonPressed:(id)sender {
-    
-    [self.motionTracker trigger];
     
 }
 
@@ -120,10 +122,10 @@
     
     if (self.motionTracker.measuring) {
         self.sendButton.enabled = NO;
-        [self.measureButton setTitle:@"Stop Measure" forState:UIControlStateNormal];
+        [self.startMeasureButton setTitle:@"Stop Measure" forState:UIControlStateNormal];
     } else {
         self.sendButton.enabled = YES;
-        [self.measureButton setTitle:@"Start Measure" forState:UIControlStateNormal];
+        [self.startMeasureButton setTitle:@"Start Measure" forState:UIControlStateNormal];
     }
     
 }
@@ -133,13 +135,13 @@
     if (self.motionTracker.calibrating) {
         
         self.calibrateButton.enabled = NO;
-        self.measureButton.enabled = NO;
+        self.startMeasureButton.enabled = NO;
         self.sendButton.enabled = NO;
         
     } else {
         
         self.calibrateButton.enabled = YES;
-        self.measureButton.enabled = YES;
+        self.startMeasureButton.enabled = YES;
         self.sendButton.enabled = YES;
         
     }
@@ -195,22 +197,22 @@
     
     [super viewDidLoad];
     
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    
-    [nc addObserver:self
-           selector:@selector(motionTrackerStateChanged)
-               name:@"motionTrackerStateChanged"
-             object:self.motionTracker];
-    
-    [nc addObserver:self
-           selector:@selector(motionTrackerCalibrating)
-               name:@"motionTrackerCalibrating"
-             object:self.motionTracker];
-    
-        [nc addObserver:self
-           selector:@selector(motionTrackerNewValues:)
-               name:@"motionTrackerNewValues"
-             object:self.motionTracker];
+//    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+//    
+//    [nc addObserver:self
+//           selector:@selector(motionTrackerStateChanged)
+//               name:@"motionTrackerStateChanged"
+//             object:self.motionTracker];
+//    
+//    [nc addObserver:self
+//           selector:@selector(motionTrackerCalibrating)
+//               name:@"motionTrackerCalibrating"
+//             object:self.motionTracker];
+//    
+//        [nc addObserver:self
+//           selector:@selector(motionTrackerNewValues:)
+//               name:@"motionTrackerNewValues"
+//             object:self.motionTracker];
     
 }
 
