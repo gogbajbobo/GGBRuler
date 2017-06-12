@@ -197,6 +197,8 @@
     
     [super viewDidLoad];
     
+    NSLog(@"%@ viewDidLoad", self);
+    
 //    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 //    
 //    [nc addObserver:self
