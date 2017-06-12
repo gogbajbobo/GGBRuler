@@ -20,8 +20,8 @@ typedef struct GGB3DVector {
     CGFloat z;
 } GGB3DVector;
 
-typedef GGB3DVector ThreeDPoint;
-typedef GGB3DVector ThreeDVelocity;
+typedef GGB3DVector GGB3DPoint;
+typedef GGB3DVector GGB3DVelocity;
 
 
 

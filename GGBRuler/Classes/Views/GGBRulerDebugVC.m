@@ -155,13 +155,13 @@
     NSData *velocityData = [userInfo objectForKey:@"velocity"];
     NSData *devicePointData = [userInfo objectForKey:@"devicePoint"];
     
-    ThreeDVelocity velocity;
+    GGB3DVelocity velocity;
     [velocityData getBytes:&velocity length:velocityData.length];
     
     self.velocityValueLabel.text = [NSString stringWithFormat:@"%.2f", [self.motionTracker modulusOfVector:velocity]];
     self.velocityAxisValuesLabel.text = [NSString stringWithFormat:@"%.2fx %.2fy %.2fz", velocity.x, velocity.y, velocity.z];
     
-    ThreeDPoint devicePoint;
+    GGB3DPoint devicePoint;
     [devicePointData getBytes:&devicePoint length:devicePointData.length];
     
     self.distanceValueLabel.text = [NSString stringWithFormat:@"%.2f", [self.motionTracker modulusOfVector:devicePoint]];

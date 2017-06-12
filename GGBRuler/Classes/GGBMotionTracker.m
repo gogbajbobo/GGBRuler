@@ -24,8 +24,8 @@
 @property (nonatomic, strong) NSDictionary *calibrationValues;
 
 @property (nonatomic) CMAcceleration deviceAcceleration;
-@property (nonatomic) ThreeDPoint devicePoint;
-@property (nonatomic) ThreeDVelocity deviceVelocity;
+@property (nonatomic) GGB3DPoint devicePoint;
+@property (nonatomic) GGB3DVelocity deviceVelocity;
 
 @end
 
@@ -33,6 +33,7 @@
 
 @synthesize measuring = _measuring;
 @synthesize calibrating = _calibrating;
+
 
 + (instancetype)sharedTracker {
     
@@ -316,8 +317,8 @@
                 //                                          motion, @"motion",
                 //                                          nil];
                 
-                ThreeDVelocity velocity = self.deviceVelocity;
-                ThreeDPoint devicePoint = self.devicePoint;
+                GGB3DVelocity velocity = self.deviceVelocity;
+                GGB3DPoint devicePoint = self.devicePoint;
                 CMAcceleration acceleration = self.deviceAcceleration;
                 
                 NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -370,7 +371,7 @@
     CGFloat gForce = 9.81;
     CGFloat k = interval * gForce;
     
-    ThreeDVelocity currentVelocity = self.deviceVelocity;
+    GGB3DVelocity currentVelocity = self.deviceVelocity;
     currentVelocity.x = accRef.x * k;
     currentVelocity.y = accRef.y * k;
     currentVelocity.z = accRef.z * k;
@@ -380,7 +381,7 @@
     //            NSLog(@"veloc x %.3f, y %.3f, z %.3f", self.deviceVelocity.x, self.deviceVelocity.y, self.deviceVelocity.z);
     //    NSLog(@"veloc z %.3f", self.deviceVelocity.z);
     
-    ThreeDPoint currentPoint = self.devicePoint;
+    GGB3DPoint currentPoint = self.devicePoint;
     currentPoint.x += self.deviceVelocity.x * interval;
     currentPoint.y += self.deviceVelocity.y * interval;
     currentPoint.z += self.deviceVelocity.z * interval;
@@ -417,13 +418,13 @@
 
 - (void)resetDevicePoint {
     
-    ThreeDPoint devicePoint;
+    GGB3DPoint devicePoint;
     devicePoint.x = 0;
     devicePoint.y = 0;
     devicePoint.z = 0;
     self.devicePoint = devicePoint;
     
-    ThreeDVelocity deviceVelocity;
+    GGB3DVelocity deviceVelocity;
     deviceVelocity.x = 0;
     deviceVelocity.y = 0;
     deviceVelocity.z = 0;
