@@ -9,7 +9,7 @@
 #import "GGBMotionTracker.h"
 
 
-#define UPDATE_INTERVAL 0.1
+#define UPDATE_INTERVAL 0.01 // 0.01 — min interval (100Hz rate)
 #define CALIBRATION_LEVEL 12 //4 8
 
 @interface GGBMotionTracker()
