@@ -352,7 +352,26 @@
     
 }
 
+- (void)motionInfo:(CMDeviceMotion *)motion {
+    
+    int coeff = 100;
+    
+    double x = round(motion.userAcceleration.x * coeff) / coeff;
+    double y = round(motion.userAcceleration.y * coeff) / coeff;
+    double z = round(motion.userAcceleration.z * coeff) / coeff;
+    
+    x = (x != 0) ? x : 0;
+    y = (y != 0) ? y : 0;
+    z = (z != 0) ? z : 0;
+    
+    NSLog(@"accel   x %.3f,     y %.3f,     z %.3f", x, y, z);
+//    NSLog(@"gravity x %.3f, y %.3f, z %.3f", motion.gravity.x, motion.gravity.y, motion.gravity.z);
+
+}
+
 - (void)calculateMotion:(CMDeviceMotion *)motion {
+    
+    NSLog(@"%@", motion);
     
     CMAcceleration acc;
     acc.x = motion.userAcceleration.x - self.calError.x;
