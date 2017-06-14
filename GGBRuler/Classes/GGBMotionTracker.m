@@ -214,77 +214,109 @@
     
 }
 
-- (NSDictionary *)calcNormalDistributionFrom:(NSArray *)data {
+
+#pragma mark - checkMotionDataForNormality
+
+- (void)checkMotionDataForNormality {
     
-    NSUInteger count = data.count;
-    double mean = 0.0;
+    NSMutableArray *data = @[].mutableCopy;
     
-    for (int i = 0; i < count; i++) {
-        mean += [data[i] doubleValue];
+    for (CMDeviceMotion *motion in self.motionsArray) {
+        [data addObject:@(motion.userAcceleration.z)];
     }
     
-    mean /= count;
+    [self andersonDarlingTestForNormalityFor:data];
+    
+}
+
+- (void)andersonDarlingTestForNormalityFor:(NSArray <NSNumber *> *)data {
+
+    data = [data sortedArrayUsingSelector:@selector(compare:)];
+
+    NSLog(@"data %@", data);
+    
+    NSDictionary *normalParameters = [self calcNormalDistributionParamsFrom:data];
+    NSArray *normalizedData = normalParameters[@"normalizedData"];
+
+    NSUInteger n = normalizedData.count;
+    double aSquare = 0.0;
+    
+    for (NSUInteger i = 1; i <= n; i++) {
+
+        double datum = [normalizedData[i-1] doubleValue];
+
+        double cdf = [self gaussianCDFForValue:datum];
+        
+        aSquare += [self aSquareValueForCDFValue:cdf
+                                               i:i
+                                               n:n];
+
+    }
+    
+    aSquare = - (n + (aSquare / n));
+    NSLog(@"aSquare %f", aSquare);
+
+    double aSquare1 = aSquare * (1.0 + 4.0 / n - 25.0 / pow(n, 2));
+    double aSquare2 = aSquare * (1.0 + 0.75 / n - 2.25 / pow(n, 2));
+
+    NSLog(@"aSquare1 %f", aSquare1);
+    NSLog(@"aSquare2 %f", aSquare2);
+
+}
+
+- (NSDictionary *)calcNormalDistributionParamsFrom:(NSArray <NSNumber *> *)data {
+    
+    NSUInteger count = data.count;
+    
+    NSNumber *sum = [data valueForKeyPath:@"@sum.self"];
+    
+    double mean = sum.doubleValue / count;
+    
     double sd = 0.0;
     
-    for (int i = 0; i < count; i++) {
-        sd += pow([data[i] doubleValue] - mean, 2);
+    for (NSNumber *datum in data) {
+        sd += pow(datum.doubleValue - mean, 2);
     }
     
     sd /= count - 1;
     sd = sqrt(sd);
     
-    NSDictionary *result = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithDouble:mean], @"mean", [NSNumber numberWithDouble:sd], @"sd", nil];
-    //    NSLog(@"result %@", result);
+    NSMutableArray *normalizedData = @[].mutableCopy;
     
-    return result;
-    
-}
-
-- (void)andersonDarlingTestForNormalityFor:(NSArray *)data {
-    
-    //    NSLog(@"data %@", data);
-    data = [data sortedArrayUsingSelector:@selector(compare:)];
-    NSDictionary *normalParameters = [self calcNormalDistributionFrom:data];
-    double n = data.count;
-    double mean = [[normalParameters valueForKey:@"mean"] doubleValue];
-    double sd = [[normalParameters valueForKey:@"sd"] doubleValue];
-    double aSquare = 0.0;
-    
-    for (int i = 0; i < data.count; i++) {
-        
-        double datum = [data[i] doubleValue];
-        datum = (datum - mean) / sd;
-        double gaussianValue = [self gaussianValueForMean:mean sd:sd x:datum];
-        aSquare += [self aSquareValueForCDFValue:gaussianValue i:i+1 n:n];
-        
+    for (NSNumber *datum in data) {
+        [normalizedData addObject:@((datum.doubleValue - mean) / sd)];
     }
     
-    aSquare = - n - (1 / n) * aSquare;
-    aSquare *= 1 + 4 / n - 25 / pow(n, 2);
+    NSDictionary *result = @{@"mean": @(mean),
+                             @"sd": @(sd),
+                             @"normalizedData": normalizedData};
     
-    NSLog(@"aSquare %f", aSquare);
+    NSLog(@"result %@", result);
     
-}
-
-- (double)gaussianValueForMean:(double)mean sd:(double)sd x:(double)x {
-    
-    double result;
-    result = 1 / (sd * sqrt(2 * M_PI));
-    NSLog(@"result %f", result);
-    NSLog(@"pow %f", -(pow(x - mean, 2) / (2 * pow(sd, 2))));
-    result *= exp(-pow(x - mean, 2) / (2 * pow(sd, 2)));
     return result;
     
 }
 
-- (double)aSquareValueForCDFValue:(double)cdf i:(double)i n:(double)n {
+- (double)gaussianCDFForValue:(double)x {
     
-    double result;
-    result = (2 * i - 1) * log(cdf);
-    result += (2 * (n - i) + 1) * log(1 - cdf);
+    NSInteger signX = (x > 0) ? 1 : (x < 0) ? -1 : 0;
+
+    double result = 0.5 * (1 + signX * sqrt(1 - exp(-2 * pow(x, 2) / M_PI)));
+    
     return result;
     
 }
+
+- (double)aSquareValueForCDFValue:(double)cdf i:(NSUInteger)i n:(NSUInteger)n {
+    
+    double result;
+    result = (2.0 * i - 1.0) * log(cdf) + (2.0 * (n - i) + 1.0) * log(1.0 - cdf);
+    return result;
+    
+}
+
+
+#pragma mark - measurements
 
 - (void)startMeasure {
     
@@ -312,11 +344,20 @@
             
         } else {
             
-            [self calculateMotion:motion];
+            [self motionInfo:motion];
             
-            [self.motionsArray addObject:motion];
+//            [self calculateMotion:motion];
             
             dispatch_async(dispatch_get_main_queue(), ^{
+            
+                [self.motionsArray addObject:motion];
+
+                if (self.motionsArray.count == 100) {
+                    
+                    [self stopMeasure];
+                    [self checkMotionDataForNormality];
+                    
+                }
                 
                 //                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                 //                                          [NSNumber numberWithDouble:[self modulusOfVector:self.deviceVelocity]], @"velocity",
