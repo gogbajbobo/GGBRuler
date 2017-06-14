@@ -231,6 +231,8 @@
 
 - (void)andersonDarlingTestForNormalityFor:(NSArray <NSNumber *> *)data {
 
+    // https://en.wikipedia.org/wiki/Anderson–Darling_test
+    
     data = [data sortedArrayUsingSelector:@selector(compare:)];
 
     NSLog(@"data %@", data);
@@ -256,11 +258,17 @@
     aSquare = - (n + (aSquare / n));
     NSLog(@"aSquare %f", aSquare);
 
-    double aSquare1 = aSquare * (1.0 + 4.0 / n - 25.0 / pow(n, 2));
-    double aSquare2 = aSquare * (1.0 + 0.75 / n - 2.25 / pow(n, 2));
+//    double aSquare1 = aSquare * (1.0 + 4.0 / n - 25.0 / pow(n, 2));
+//    double aSquare2 = aSquare * (1.0 + 0.75 / n - 2.25 / pow(n, 2));
+//
+//    NSLog(@"aSquare1 %f", aSquare1);
+//    NSLog(@"aSquare2 %f", aSquare2);
 
-    NSLog(@"aSquare1 %f", aSquare1);
-    NSLog(@"aSquare2 %f", aSquare2);
+    // let reject normality if aSquare > 0.5
+
+    if (aSquare > 0.5) {
+        NSLog(@"data is not normal");
+    }
 
 }
 
